@@ -6,7 +6,6 @@ function PassengerForm({ numberOfTravelers  }) {
   const navigate = useNavigate();
   const [passengerDetails, setPassengerDetails] = useState([]);
   const location = useLocation();
-  const bookingDetails = location.state?.bookingDetails;
   const flight = location.state?.flight;
 
   const renderPassengerInputs = () => {

@@ -40,19 +40,12 @@ function Header() {
           <div className='ms-auto'>
           <MDBNavbarNav >
               <MDBNavbarItem >
-                <MDBNavbarLink active className='mt-1' aria-current='page' href='#'>
+                <MDBNavbarLink active className='mt-1' aria-current='page' href='/'>
                   Home
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink href='#tips' className='mt-1'>Travel Tips</MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <Link to={'/booking'}>
-                <MDBNavbarLink className='mt-1' >
-                  Booking
-                </MDBNavbarLink>
-                </Link>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink >

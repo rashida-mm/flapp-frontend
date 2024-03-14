@@ -41,3 +41,8 @@ export const editFlightAPI = async(flightId,reqBody,reqHeader)=>{
 export const deleteFlightAPI = async(flightId,reqHeader)=>{
     return await commonAPI("delete",`${baseUrl}/flight/delete-flights/${flightId}`,{},reqHeader)
 }
+
+//booking API call - post
+export const bookFlightAPI = async (bookingDetails, reqHeader) => {
+    return await commonAPI('post', `${baseUrl}/booking/book-flight`, bookingDetails, reqHeader);
+}
