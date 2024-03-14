@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap'
 import '../Components/Style.css'
 import { Modal, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { Booking } from '../ContextAPI/ContextShare';
+import { Booking, bookingResContext } from '../ContextAPI/ContextShare';
 
 // Define the LoginPromptModal component
 const LoginPromptModal = ({ show, handleClose, handleLogin }) => {
@@ -34,7 +34,7 @@ function TravellerDet({ adjustedPrice}) {
   const [childrenCount, setChildrenCount] = useState(0);
   const [infantsCount, setInfantsCount] = useState(0);
 
-  const { bookingDetails } = useContext(Booking);
+  const { selectedFlight } = useContext(bookingResContext);
 
   const handleBookFlight = () => {
     const token = sessionStorage.getItem('token');
@@ -42,10 +42,9 @@ function TravellerDet({ adjustedPrice}) {
     if (token) {
       const totalPrice = calculateTotalPrice();
       const total = adultsCount + childrenCount + infantsCount;
-      
 
-      navigate('/payment', { state: { totalPrice , total,bookingDetails  } });
-      console.log(totalPrice);
+      navigate('/payment', { state: { totalPrice, total, flight: selectedFlight } });
+            console.log(totalPrice);
       console.log(total);
         } else {
       // Show the login prompt modal      

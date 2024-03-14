@@ -66,7 +66,7 @@ function UserProfile() {
         </MDBContainer>
       </MDBNavbar>
 
-          <h1 className='my-3 mx-5'>Welcome <span className='text-primary'>{existingUser.name}</span></h1>
+          <h1 className='my-3 mx-5'>Hey ! <span className='text-primary'>{existingUser.name}</span></h1>
           <div className='d-flex'>
        <label>
         <input style={{ display: 'none' }} type="file" />

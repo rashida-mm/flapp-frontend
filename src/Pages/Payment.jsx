@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import '../Components/Style.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import PassengerForm from '../Components/PassengerForm';
 
 function Payment() {
   const location = useLocation();
   const totalPrice = location.state?.totalPrice;
   const total = location.state?.total;
-  const bookingDetails = location.state?.bookingDetails;
+  const flight = location.state?.flight;
   
 console.log(totalPrice);
-
+console.log(flight);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -150,9 +150,9 @@ console.log(totalPrice);
           </section>
         </Col>
         <Col>
-        {paymentSuccess && <PassengerForm numberOfTravelers={total}/>}
+        {paymentSuccess && <PassengerForm numberOfTravelers={total} flight={flight}  />}
+</Col>
 
-        </Col>
       </Row>
     </div>
   );

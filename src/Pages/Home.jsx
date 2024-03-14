@@ -123,10 +123,9 @@ function Home() {
 </section>
 
 <section id='sub'>
-<div className="container my-5">
-<form className="form p-3">
+<div className="container my-5 rounded-9">
+<form className="form-1 p-3">
   <span className="title">Subscribe to our newsletter.</span>
-  <p className="description">Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt dolore.</p>
   <div>
     <input className='form-control' placeholder="Enter your email" type="email" name="email" id="email-address"/>
     <button className='btn' type="submit">Subscribe</button>

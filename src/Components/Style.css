@@ -87,7 +87,7 @@
 }
 
 .overlay1 {
-  top: 70px;
+  top: 90px;
   left: 55%; /* Adjust the margin to control the overlap */
 }
 
@@ -190,7 +190,7 @@ color: white;
 
 
 /* subsricbe */
-.form {
+.form-1 {
   display: flex;
   flex-direction: column;
   background: #606c88;
@@ -214,13 +214,13 @@ color: white;
   color: rgb(209 213 219);
 }
 
-.form div {
+.form-1 div {
   display: flex;
   margin-top: 1rem;
   column-gap: 0.5rem;
 }
 
-.form div input {
+.form-1 div input {
   outline: none;
   line-height: 1.5rem;
   font-size: 0.875rem;
@@ -232,15 +232,15 @@ color: white;
   flex: 1 1 auto;
 }
 
-.form div input::placeholder {
+.form-1 div input::placeholder {
   color: rgb(216, 212, 212);
 }
 
-.form div input:focus {
+.form-1 div input:focus {
   border: 1px solid rgb(99 102 241);
 }
 
-.form div button {
+.form-1 div button {
   color: #fff;
   font-weight: 600;
   font-size: 0.875rem;
@@ -251,7 +251,7 @@ color: white;
   border: none;
   outline: none;
 }
-.form div button:hover {
+.form-1 div button:hover {
   color: white;
   background: linear-gradient(to bottom, #2c2f63, #5b67b7);
   animation: button-particles 1s ease-in-out infinite;
