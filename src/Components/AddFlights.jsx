@@ -60,7 +60,7 @@ function AddFlights() {
   const saveFlight = async () => {
     const { airline, airlineLogo, flightNumber, departureAirport, destinationAirport, departureDate, departureTime, arrivalDate, arrivalTime, price, layover, duration } = flightDet
     if (!airline || !airlineLogo || !flightNumber || !departureAirport || !destinationAirport || !departureDate || !departureTime || !arrivalDate || !arrivalTime || !price || !duration) {
-      toast.error("Please enter all the Details")
+      alert("Please enter all the Details")
     }
     else {
       const reqBody = new FormData() ///because their is a fle uploaded content
