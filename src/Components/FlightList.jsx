@@ -37,7 +37,7 @@ function FlightList({ flights }) {
   console.log(flights);
   return (
     <div>
-      <div className="container bg-light shadow rounded-9 p-3 my-5">
+      <div className="container bg-light m-2 p-3 my-5">
       <Row>
       {flights && flights.length > 0 ? (
         flights?.map((flight) => (

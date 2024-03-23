@@ -56,7 +56,7 @@ function TravellerDet({ adjustedPrice}) {
 
   const handleLoginModal = () => {
     // Navigate to the login page
-    navigate('/login');
+    navigate('/login', { state: { fromBooking: true } });
   };
 
   const handleCountChange = (type, increment) => {

@@ -4,6 +4,8 @@ import '../Components/Style.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PassengerForm from '../Components/PassengerForm';
 import logo from '../Assets/new.png'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 function Payment() {
   const location = useLocation();
@@ -78,7 +80,7 @@ function Payment() {
 
     // Simulate successful payment
     setPaymentSuccess(true);
-    alert("paymet success")
+    toast.success("Payment Successfull !")
   };
 
   return (
@@ -156,6 +158,18 @@ function Payment() {
           </Col>
         )}
       </Row>
+      <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
     </div>
   );
 }

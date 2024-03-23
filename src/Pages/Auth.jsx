@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../Assets/new.png'
 import { loginAPI, registerAPI } from '../services/allAPI';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,8 +8,8 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 function Auth({ register }) {
-
-  const location = useNavigate()
+  const location = useLocation();
+const navigate = useNavigate();
   const isRegisterForm = register ? true : false
 
   //state creation to hold values
@@ -54,15 +54,17 @@ function Auth({ register }) {
       sessionStorage.setItem("existingUser",JSON.stringify(result.data.user))
      sessionStorage.setItem("token", result.data.token)
      if (result.data.user.role === 'admin') {
-      location('/profile');
-    } else if(result.data.newUser) {
-      location('/booking');
+      navigate('/profile');
+    } else {
+      const fromBooking = location.state?.fromBooking;
+      if (fromBooking) {
+        navigate('/booking');
+      } else {
+        // Navigate to the profile page for other cases
+        navigate('/profile');
+      }
     }
-    else {
-      // Redirect existing users to the profile page
-      location('/profile');
-    }
-  }
+  }    
      else{
       toast.error("Please enter Valid details !")
     }

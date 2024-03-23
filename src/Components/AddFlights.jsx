@@ -3,8 +3,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import img from '../Assets/img.png'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import { addFlightAPI } from '../services/allAPI';
 import { addFlightResContext } from '../ContextAPI/ContextShare';
 
@@ -88,7 +87,6 @@ function AddFlights() {
       console.log(result);
       if (result.status === 200) {
         console.log(result.data);
-        toast.success("Flight Added Succesfully")
         handleClose()
         setAddFlightRes(result.data)//context access the addflight data
         setFlightdet(
@@ -159,18 +157,7 @@ function AddFlights() {
           </Button>
         </Modal.Footer>
       </Modal>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      
     </div>
   )
 }
