@@ -37,7 +37,7 @@ function FlightList({ flights }) {
   console.log(flights);
   return (
     <div>
-      <div className="container bg-light border border-info rounded-9 p-3 my-5">
+      <div className="container bg-light shadow rounded-9 p-3 my-5">
       <Row>
       {flights && flights.length > 0 ? (
         flights?.map((flight) => (
@@ -74,7 +74,7 @@ function FlightList({ flights }) {
 </Row>
 <div className='d-flex justify-content-between'>
 <p>layover - {flight.layover}</p>
-<button className='btn btn-info'
+<button className='btn text-white' style={{backgroundColor:'#FF6D38'}}
  onClick={() => handleBookClick(flight)}
  >View Details</button>
 </div>

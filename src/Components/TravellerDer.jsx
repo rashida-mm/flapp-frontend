@@ -14,10 +14,8 @@ const LoginPromptModal = ({ show, handleClose, handleLogin }) => {
     </Modal.Header>
     <Modal.Body>You must login to proceed !</Modal.Body>
     <Modal.Footer>
-      <Button variant="secondary" onClick={handleClose}>
-        Close
-      </Button>
-      <Button variant="primary" onClick={handleLogin}>
+      
+      <Button variant="success" onClick={handleLogin}>
         Ok
       </Button>
     </Modal.Footer>
@@ -96,8 +94,8 @@ const calculateTotalPrice = () => {
     <div className='pb-5'>
       <Row className='w-100 px-5'>
         <Col>
-        <div className="container p-4 text-dark bg-white rounded-9 shadow">
-<h4 className="py-2 px-3 rounded-9" style={{backgroundColor:'#F8F9FD'}}>Traveller Details</h4>
+        <div className="container p-4 text-dark bg-white rounded-9 shadow" style={{height:'270px'}}>
+<h4 className="py-2 px-3 rounded-9" style={{backgroundColor:' #bad4f3'}}>Traveller Details</h4>
 <Row className='my-3 text-center traveller'>
   <Col>
   <h6>Adults</h6>
@@ -131,13 +129,15 @@ const calculateTotalPrice = () => {
         </Col>
         <Col>
         <div className="container p-4 text-dark bg-white rounded-9 shadow">
-          <h4 className="py-2 px-3 rounded-9" style={{backgroundColor:'#F8F9FD'}}>Fare Summary</h4>
+          <h4 className="py-2 px-3 rounded-9" style={{backgroundColor:' #bad4f3'}}>Fare Summary</h4>
     <h6 className='m-3 fw-bolder'>Base Fare</h6>
     <input type="text" className='form-control' value={`Adults (${adultsCount} x ${adjustedPrice}), Children (${childrenCount} x ₹${adjustedPrice - 500}) , Infants (${infantsCount} x ₹0) `} 
     />
           <h3 className='fw-bolder text-end m-4'>₹ {calculateTotalPrice()}
           <span className='mx-2'>
-          <button onClick={handleBookFlight} className='btn btn-outline-primary rounded-9 shadow'>Book Flight</button>
+          <button onClick={handleBookFlight}  style={{border:'2px solid #FF6D38'}} className={`btn rounded-9 shadow ${total > 0 ? '' : 'disabled'}`}
+                  disabled={total === 0}
+>Book Flight</button>
   <LoginPromptModal show={showModal} handleClose={handleCloseModal} handleLogin={handleLoginModal} />
           </span>
           </h3>

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { bookFlightAPI } from '../services/allAPI';
+import logo from '../Assets/new.png'
 
 function PassengerForm({ numberOfTravelers  }) {
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ function PassengerForm({ numberOfTravelers  }) {
     const inputs = [];
     for (let i = 0; i < numberOfTravelers; i++) {
       inputs.push(
-        <div key={i} className='m-3 p-2 rounded-9'>
+        <div key={i} style={{border:'1px solid #FF6D38'}} className='card shadow m-3 p-4 w-100 rounded-9'>
           <h4>Passenger {i + 1}</h4>
           <label className='d-block mb-2'>
             Full Name:
@@ -47,20 +49,52 @@ function PassengerForm({ numberOfTravelers  }) {
   };
 
 
-  const handleSubmit = () => {
-    const userBookingDetails = {
-      passengerDetails,
-      flight,
+  //bookings add
+
+       //to hold token
+       const [token, setToken] = useState("")
+
+       //to assig token
+       useEffect(() => {   //this will get u token from session storage
+         if (sessionStorage.getItem("token")) {
+           setToken(sessionStorage.getItem("token"))
+         }
+       }, [])
+
+    const handleSubmit = async () => {
+      try {
+        // Prepare booking details for API call
+        const bookingDetails = {
+          ...flight,
+          passengerDetails: passengerDetails || []
+                };
+  
+
+      // Set up request headers with the token
+      const reqHeader = {
+        "Content-Type": "multipart/form-data",  //req contains a file upload content( image )
+        "Authorization": `Bearer ${token}`  // req contains token for backend
+      }
+
+        // Make API call to book flight
+        const result = await bookFlightAPI(bookingDetails,reqHeader);
+  
+        if (result.status === 200) {
+          console.log(result.data.booking);
+          // Redirect to profile page if booking is successful
+        }
+        navigate('/profile');
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle error if API call fails
+      }
     };
 
-    // Here, you can use userBookingDetails to send the data to the backend or store it as needed
-    // For now, we'll simply navigate to /profile with the userBookingDetails
-    navigate('/profile', { state: { userBookingDetails } });
-  };
-  
   return (
     <div className=' p-3 rounded-9'>
-      <h2>Passenger Details</h2>
+<div className="ms-3 container rounded-9" style={{border:'1px solid #FF6D38'}}>
+<h2 className='fw-bold'> <span><img className='logo mx-auto' src={logo} alt=""/> </span>Payment to proceed !</h2>
+</div>
       {renderPassengerInputs()}
       <button  className='btn btn-success d-flex mx-auto' onClick={handleSubmit}>
         Submit

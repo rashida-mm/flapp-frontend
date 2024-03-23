@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import bg from '../Assets/compressed.jpg';
-import logo from '../Assets/mapp.png'
+import logo from '../Assets/new.png'
 import { loginAPI, registerAPI } from '../services/allAPI';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -56,8 +55,12 @@ function Auth({ register }) {
      sessionStorage.setItem("token", result.data.token)
      if (result.data.user.role === 'admin') {
       location('/profile');
-    } else {
+    } else if(result.data.newUser) {
       location('/booking');
+    }
+    else {
+      // Redirect existing users to the profile page
+      location('/profile');
     }
   }
      else{
@@ -67,19 +70,18 @@ function Auth({ register }) {
   }
 
   return (
-    <div style={{ backgroundColor: '#EFEFF1' }}>
-      <div className='d-flex flex-column justify-content-center align-items-center' style={{ width: '100%', height: '640px', backgroundColor: '#EFEFF1' }}>
+    <div >
+      <div className='d-flex flex-column justify-content-center align-items-center' style={{ width: '100%', height: '640px' }}>
         <div className='container'>
           <div className="row">
             <div className="col">
-              <img src={bg} className='img-fluid' style={{ width: '550px' }} alt="" />
             </div>
-            <div className="col card1 p-4 rounded-5 bg-info shadow " >
+            <div className="col card1 p-4 rounded-5 shadow " style={{backgroundColor:'#1C4573'}} >
               {/* form */}
               <h3 className='text-center text-white name'>Flapp
                 <img className='logo ms-1' src={logo} alt="" />
               </h3>
-              <h5 className='text-center text-dark m-3'>
+              <h5 className='text-center text-light m-3'>
                 {
                   isRegisterForm ? 'Sign Up here' : 'Sign In here'
                 }
@@ -97,17 +99,19 @@ function Auth({ register }) {
                   <div className='text-center m-3'>
                     <button onClick={registerData} className='btn btn-success rounded-5'>Sign Up</button>
                     <Link to={'/login'} className='text-decoration-none'>
-                      <p className='m-3 text-dark'>Already a user? Please Sign In here</p>
+                      <p className='m-3 text-light'>Already a user? Please Sign In here</p>
                     </Link>
                   </div>
                   :
                   <div className='text-center m-3'>
                     <button onClick={loginData} className='btn btn-danger rounded-5'>Sign In</button>
                     <Link to={'/register'} className='text-decoration-none'>
-                      <p className='m-3 text-dark'>New user? Please Sign Up here</p>
+                      <p className='m-3 text-light'>New user? Please Sign Up here</p>
                     </Link>
                   </div>
               }
+            </div>
+            <div className="col">
             </div>
           </div>
 

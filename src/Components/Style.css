@@ -148,7 +148,7 @@ color: white;
 #top{
   margin-top: 90px;
 }
-.card {
+.cards {
   width: 300px;
   height: 400px;
   color: white;
@@ -164,11 +164,11 @@ color: white;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.card .main-content {
+.cards .main-content {
   flex: 1;
 }
 
-.card:hover {
+.cards:hover {
   rotate: 8deg;
 }
 .main-content {
@@ -193,9 +193,9 @@ color: white;
 .form-1 {
   display: flex;
   flex-direction: column;
-  background: #606c88;
-  background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
-  background: linear-gradient(to right, #3f4c6b, #606c88);
+  background: #CE4190;
+  background: -webkit-linear-gradient(to right, #CE4190, #F36B40);
+  background: linear-gradient(to right, #CE4190,#F36B40);
   border-radius: 10px;
 }
 
@@ -246,14 +246,14 @@ color: white;
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding: 0.625rem 0.875rem;
-  background-color: rgb(99 102 241);
+  background-color: #ad2673;
   border-radius: 0.375rem;
   border: none;
   outline: none;
 }
 .form-1 div button:hover {
   color: white;
-  background: linear-gradient(to bottom, #2c2f63, #5b67b7);
+  background: linear-gradient(to bottom, #ad2673, #e04d20);
   animation: button-particles 1s ease-in-out infinite;
   transform: translateY(-2px);
 }
@@ -266,6 +266,7 @@ color: white;
 .custom-modal .modal-header,
 .custom-modal .modal-footer {
   border: none;
+  color: #1C4573;
 }
 
 /* //payment */
@@ -292,7 +293,7 @@ color: white;
 .form .label:has(input:focus) .title {
   top: 0;
   left: 0;
-  color: #cce1fa;
+  color: #FF6D38;
 }
 .form .label .title {
   padding: 0 10px;
@@ -316,16 +317,16 @@ color: white;
   background-color: transparent;
   border: 1px solid #21262e;
   transition: all 0.3s;
-  caret-color: #cce1fa;
+  caret-color: #FF6D38;
   color: #aeaeae;
 }
 
 .form .input-field:hover {
-  border-color: #cce1fa;
+  border-color: #fff;
 }
 
 .form .input-field:focus {
-  border-color:#cce1fa;
+  border-color:#FF6D38;
 }
 .form .split {
   display: flex;
@@ -351,9 +352,9 @@ color: white;
   border: none;
   justify-content: center;
   fill: #fff;
-  color:#1C4573;
+  color:#ffff;
   border: 2px solid transparent;
-  background: #cce1fa;
+  background: #FF6D38;
   transition: all 200ms;
 }
 .form .checkout-btn:active {
@@ -361,7 +362,22 @@ color: white;
 }
 
 .form .checkout-btn:hover {
-  color: #cce1fa;
-  border: 2px solid #cce1fa;
+  color: #FF6D38;
+  border: 2px solid #FF6D38;
   background: transparent;
+}
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+    display: none;
+  }
+}
+
+.slide-out-left {
+  animation: slideOutLeft 1s ease-in-out forwards;
 }

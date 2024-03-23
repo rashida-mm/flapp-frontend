@@ -94,7 +94,7 @@ function Home() {
 <h2 className='text-center my-5'>Top travel Destinations</h2>
 <Row>
   <Col>
-  <div class="card m-2 ">
+  <div class="card cards m-2 ">
   <div class="main-content">
     <img className='rounded' style={{width:'300px'}} src={paris} alt="" />
     <div className="hover-text fs-2">Paris</div>
@@ -102,7 +102,7 @@ function Home() {
 </div>
   </Col>
   <Col>
-  <div class="card m-2">
+  <div class="card cards m-2">
   <div class="main-content">
     <img className='rounded' style={{width:'300px'}} src={dubai} alt="" />
     <div className="hover-text fs-2">Dubai</div>
@@ -110,7 +110,7 @@ function Home() {
 </div>
   </Col>
   <Col>
-  <div class="card m-2">
+  <div class="card cards m-2">
   <div class="main-content">
     <img className='rounded' style={{width:'300px'}} src={ny} alt="" />
     <div className="hover-text fs-2">New York</div>

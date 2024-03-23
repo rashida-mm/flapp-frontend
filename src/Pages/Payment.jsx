@@ -3,15 +3,16 @@ import { Col, Row } from 'react-bootstrap';
 import '../Components/Style.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PassengerForm from '../Components/PassengerForm';
+import logo from '../Assets/new.png'
 
 function Payment() {
   const location = useLocation();
   const totalPrice = location.state?.totalPrice;
   const total = location.state?.total;
   const flight = location.state?.flight;
-  
-console.log(totalPrice);
-console.log(flight);
+
+  console.log(totalPrice);
+  console.log(flight);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -23,6 +24,7 @@ console.log(flight);
   const [cardType, setCardType] = useState(''); // New state to store card type
   const [paymentSuccess, setPaymentSuccess] = useState(false); // New state for payment success
 
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -36,7 +38,7 @@ console.log(flight);
       checkCardType(value);
     }
   };
-  
+
   const checkCardType = (cardNumber) => {
     // Define regular expressions for different card types
     const visaRegex = /^4/;
@@ -74,19 +76,19 @@ console.log(flight);
       return;
     }
 
-
     // Simulate successful payment
     setPaymentSuccess(true);
+    alert("paymet success")
   };
 
   return (
     <div className='container p-5 my-5'>
-
       <Row className="justify-content-center">
-        <Col>
-          <section className="add-card page text-center mx-auto">
+        <Col xs={12} md={paymentSuccess ? 6 : 4} className={paymentSuccess ? 'offset-md-3' : ''}>
+          <section className={`add-card page text-center mx-auto ${paymentSuccess ? 'slide-out-left' : ''}`}>
             <form className="form">
-              <label htmlFor="name" className="label">
+              <h6 className='fw-bold text-light'> <span>            <img className='logo mx-auto' src={logo} alt=""/> </span>Payment to proceed !</h6>
+<label htmlFor="name" className="label">
                 <span className="title">Card holder full name</span>
                 <input
                   className="input-field"
@@ -110,7 +112,6 @@ console.log(flight);
                 />
                 {cardType && <span className="card-type">{cardType}</span>}
               </label>
-
               <div className="split">
                 <label htmlFor="ExDate" className="label">
                   <span className="title">Expiry Date</span>
@@ -126,7 +127,7 @@ console.log(flight);
                   />
                 </label>
                 <label htmlFor="cvv" className="label">
-                  <span className="title"> CVV</span>
+                  <span className="title">CVV</span>
                   <input
                     id="cvv"
                     className="input-field"
@@ -141,18 +142,19 @@ console.log(flight);
                 </label>
               </div>
               <input
-  className={`checkout-btn ${paymentSuccess ? 'success' : ''}`}
-  type="button"
-  value={paymentSuccess ? 'Payment Successful ✔' : `Pay ₹${totalPrice}`}
-  onClick={handleCheckout}
-/>
-                 </form>
+                className={`checkout-btn ${paymentSuccess ? 'success' : ''}`}
+                type="button"
+                value={paymentSuccess ? 'Payment Successful ✔' : `Pay ₹${totalPrice}`}
+                onClick={handleCheckout}
+              />
+            </form>
           </section>
         </Col>
-        <Col>
-        {paymentSuccess && <PassengerForm numberOfTravelers={total} flight={flight}  />}
-</Col>
-
+        {paymentSuccess && (
+          <Col xs={12} md={6}>
+            <PassengerForm numberOfTravelers={total} flight={flight} />
+          </Col>
+        )}
       </Row>
     </div>
   );

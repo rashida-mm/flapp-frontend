@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import Admin from '../Components/Admin';
 import User from '../Components/User';
-import logo from '../Assets/mapp.png';
+import logo from '../Assets/new.png';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   MDBNavbar,
@@ -37,9 +37,9 @@ function UserProfile() {
     <div >
       
       <div className="container">
-      <MDBNavbar expand='lg' light bgColor='info' className='rounded-9 my-3'>
+      <MDBNavbar expand='lg' style={{backgroundColor:'#1C4573'}} className='rounded-9 my-3'>
         <MDBContainer fluid>
-          <MDBNavbarBrand className='name'>
+          <MDBNavbarBrand className='name text-white'>
             <img className='logo' src={logo} alt="" />
             FlApp</MDBNavbarBrand>
           <MDBNavbarToggler
@@ -57,7 +57,7 @@ function UserProfile() {
           <MDBNavbarNav >
               <MDBNavbarItem>
                 <MDBNavbarLink >
-                  <button onClick={logout} className='btn btn-primary rounded-9'>Sign Out</button>
+                  <button onClick={logout} className='btn btn-white rounded-9'>Sign Out</button>
                 </MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
@@ -95,15 +95,7 @@ function UserProfile() {
         />
         </div>
       </div>
-      
-        {/* Conditionally render based on user's role */}
-        {existingUser.role === 'admin' && (
-         <Admin/>
-        )}
-
-        {existingUser.role === 'user' && (
-          <User/>
-        )}
+      {existingUser.role === 'admin' ? <Admin /> : <User />}
       </div> 
       </div>
   );

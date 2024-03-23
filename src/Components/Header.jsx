@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Style.css';
-import logo from '../Assets/mapp.png';
+import logo from '../Assets/new.png';
 import { Link } from 'react-router-dom';
 import {
   MDBNavbar,
@@ -21,9 +21,9 @@ function Header() {
 
   return (
     <div className='py-3'>
-      <MDBNavbar expand='lg' light bgColor='info' className='rounded-9 '>
+      <MDBNavbar expand='lg' style={{backgroundColor:'#1C4573'}}  className='rounded-9 '>
         <MDBContainer fluid>
-          <MDBNavbarBrand className='name' href='/'>
+          <MDBNavbarBrand className='name text-white' href='/'>
             <img className='logo' src={logo} alt="" />
             FlApp</MDBNavbarBrand>
           <MDBNavbarToggler
@@ -50,7 +50,7 @@ function Header() {
               <MDBNavbarItem>
                 <MDBNavbarLink >
                   <Link to={'/login'}>
-                  <button className='btn btn-primary rounded-9'>Sign In</button>
+                  <button className='btn btn-white rounded-9'>Sign In</button>
                   </Link>
                 </MDBNavbarLink>
               </MDBNavbarItem>

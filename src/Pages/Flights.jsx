@@ -8,7 +8,7 @@ function Flights() {
   const location = useLocation();
   const filteredFlights = location.state?.flights;
   return (
-    <div className='container'>
+    <div className='container' >
       <Header/>
       <FlightSearch/>
   <FlightList flights={filteredFlights} />

@@ -80,7 +80,7 @@ function Booking() {
       };
 
   return (
-    <div style={{backgroundColor:'#E5EEF4'}}>
+    <div >
       <div className='container text-dark'>
         <Header />
         <div className="container bg-white shadow rounded-9 p-3 my-5">

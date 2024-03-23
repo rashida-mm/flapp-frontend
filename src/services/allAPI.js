@@ -43,6 +43,10 @@ export const deleteFlightAPI = async(flightId,reqHeader)=>{
 }
 
 //booking API call - post
-export const bookFlightAPI = async (bookingDetails, reqHeader) => {
-    return await commonAPI('post', `${baseUrl}/booking/book-flight`, bookingDetails, reqHeader);
+export const bookFlightAPI = async (reqBody, reqHeader) => {
+    return await commonAPI('post', `${baseUrl}/payment/book-flight`, reqBody, reqHeader);
+}
+
+export const getBookingAPI = async (reqHeader) => {
+    return await commonAPI('get', `${baseUrl}/profile/get-booking`, "", reqHeader);
 }
