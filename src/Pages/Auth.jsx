@@ -32,7 +32,7 @@ const navigate = useNavigate();
       if (result.status == 200) {
         // api call
         alert(`${result.data.message}`)
-        location('/login')
+        navigate('/login')
       } else {
         alert(`${result.response.data}`)
       }
