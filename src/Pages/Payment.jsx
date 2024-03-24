@@ -39,6 +39,7 @@ function Payment() {
     if (name === 'cardNumber') {
       checkCardType(value);
     }
+    
   };
 
   const checkCardType = (cardNumber) => {
@@ -75,6 +76,12 @@ function Payment() {
     const cardRegex = /^(\d{4} ){3}\d{4}$/;
     if (!cardRegex.test(formData.cardNumber)) {
       alert('Invalid card number format');
+      return;
+    }
+
+    const expiryDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/; // MM/YY format regex
+    if (!expiryDateRegex.test(formData.expiryDate)) {
+      alert('Invalid expiry date format. Please enter in MM/YY format.');
       return;
     }
 

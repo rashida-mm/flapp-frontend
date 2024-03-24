@@ -28,14 +28,13 @@ function Booking() {
     }, [flight, setSelectedFlight, bookingDetails]);
     
     
-    useEffect(() => {
-      // Set the selected flight from context when the component mounts
-      if (flight) {
-        setSelectedFlight(flight);
-      }
-    }, [flight, setSelectedFlight]);
+    // useEffect(() => {
+    //   // Set the selected flight from context when the component mounts
+    //   if (flight) {
+    //     setSelectedFlight(flight);
+    //   }
+    // }, [flight, setSelectedFlight]);
 
-    //     const token = sessionStorage.getItem('token');
     
     //     if (token) {
     //       navigate('/payment');

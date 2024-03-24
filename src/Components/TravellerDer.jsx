@@ -76,8 +76,6 @@ function TravellerDet({ adjustedPrice}) {
 
   };
 
-  const total = adultsCount + childrenCount + infantsCount;
-console.log(total);
 
 const calculateTotalPrice = () => {
   const priceAdjustmentPerChild = adjustedPrice-500;
@@ -89,6 +87,8 @@ const calculateTotalPrice = () => {
 
   return totalPrice;
 };
+
+  const total = adultsCount + childrenCount + infantsCount;
 
   return (
     <div className='pb-5'>
