@@ -93,7 +93,7 @@ function PassengerForm({ numberOfTravelers  }) {
   return (
     <div className=' p-3 rounded-9'>
 <div className="ms-3 container rounded-9" style={{border:'1px solid #FF6D38'}}>
-<h2 className='fw-bold'> <span><img className='logo mx-auto' src={logo} alt=""/> </span>Payment to proceed !</h2>
+<h2 className='fw-bold'> <span><img className='logo mx-auto' src={logo} alt=""/> </span>Passenger Details </h2>
 </div>
       {renderPassengerInputs()}
       <button  className='btn btn-success d-flex mx-auto' onClick={handleSubmit}>

@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 
 function FlightSearch() {
+
   const [validated, setValidated] = useState(false);
   const navigate = useNavigate();
   const classOptions = ['Economy', 'Business', 'First Class'];

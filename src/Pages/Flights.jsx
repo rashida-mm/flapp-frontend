@@ -7,10 +7,11 @@ import Header from '../Components/Header'
 function Flights() {
   const location = useLocation();
   const filteredFlights = location.state?.flights;
+
   return (
     <div className='container' >
       <Header/>
-      <FlightSearch/>
+      <FlightSearch />
   <FlightList flights={filteredFlights} />
       </div>
   )

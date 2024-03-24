@@ -28,13 +28,6 @@ function Booking() {
     }, [flight, setSelectedFlight, bookingDetails]);
     
     
-    // useEffect(() => {
-    //   // Set the selected flight from context when the component mounts
-    //   if (flight) {
-    //     setSelectedFlight(flight);
-    //   }
-    // }, [flight, setSelectedFlight]);
-
     
     //     if (token) {
     //       navigate('/payment');
